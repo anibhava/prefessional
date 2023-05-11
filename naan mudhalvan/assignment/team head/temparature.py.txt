@@ -1,0 +1,24 @@
+import random
+
+def generate_sensor_values():
+    temperature = random.uniform(20, 40)  # Generate temperature between 20 and 40 degrees Celsius
+    humidity = random.uniform(40, 80)  # Generate humidity between 40% and 80%
+    return temperature, humidity
+
+def check_alarm(temperature, humidity):
+    if temperature > 30 and humidity > 60:
+        return True
+    else:
+        return False
+
+# Generate multiple sensor values
+num_samples = 5  # Number of sensor readings to generate
+
+for _ in range(num_samples):
+    temperature, humidity = generate_sensor_values()
+
+    # Check alarm condition
+    if check_alarm(temperature, humidity):
+        print(f"Alarm: High temperature ({temperature:.2f}°C) and high humidity ({humidity:.2f}%) detected!")
+    else:
+        print(f"No alarm: Temperature ({temperature:.2f}°C) and humidity ({humidity:.2f}%) within normal range.")
